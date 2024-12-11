@@ -8,6 +8,11 @@ import tlx02 from "../../assets/screenshots/tlx/02.png";
 import tlx03 from "../../assets/screenshots/tlx/03.png";
 import tlx04 from "../../assets/screenshots/tlx/04.png";
 
+import mero01 from "../../assets/screenshots/mero/01.png";
+import mero02 from "../../assets/screenshots/mero/02.png";
+import mero03 from "../../assets/screenshots/mero/03.png";
+import mero04 from "../../assets/screenshots/mero/04.png";
+
 const StyledOurProjects = styled.div`
   width: 100%;
   height: 100dvh;
@@ -102,7 +107,7 @@ const WhoWeAre = () => {
         }}
         name="Mero"
         content="Mero redefined liquidity, making it reactive, efficient, and unapologetically dynamic in a space that demanded evolution."
-        images={[tlx01, tlx02, tlx03, tlx04]}
+        images={[mero01, mero02, mero03, mero04]}
       />
       <Project
         show={showTlx}
