@@ -3,6 +3,11 @@ import styled from "styled-components";
 import Project from "../../components/Project";
 import bg from "../../assets/backgrounds/5C.png";
 
+import tlx01 from "../../assets/screenshots/tlx/01.png";
+import tlx02 from "../../assets/screenshots/tlx/02.png";
+import tlx03 from "../../assets/screenshots/tlx/03.png";
+import tlx04 from "../../assets/screenshots/tlx/04.png";
+
 const StyledOurProjects = styled.div`
   width: 100%;
   height: 100dvh;
@@ -66,7 +71,7 @@ const Link = styled.button`
 
 const WhoWeAre = () => {
   const [showMero, setShowMero] = useState(false);
-  // const [showTlx, setShowTlx] = useState(false);
+  const [showTlx, setShowTlx] = useState(false);
 
   return (
     <StyledOurProjects>
@@ -74,8 +79,20 @@ const WhoWeAre = () => {
       <Content>
         <Header>Our Projects</Header>
         <Links>
-          <Link>Mero</Link>
-          <Link>TLX</Link>
+          <Link
+            onClick={() => {
+              setShowMero(true);
+            }}
+          >
+            Mero
+          </Link>
+          <Link
+            onClick={() => {
+              setShowTlx(true);
+            }}
+          >
+            TLX
+          </Link>
         </Links>
       </Content>
       <Project
@@ -83,6 +100,18 @@ const WhoWeAre = () => {
         hide={() => {
           setShowMero(false);
         }}
+        name="Mero"
+        content="Mero redefined liquidity, making it reactive, efficient, and unapologetically dynamic in a space that demanded evolution."
+        images={[tlx01, tlx02, tlx03, tlx04]}
+      />
+      <Project
+        show={showTlx}
+        hide={() => {
+          setShowTlx(false);
+        }}
+        name="TLX"
+        content="TLX distilled leverage into simplicity, crafting non-liquidating tokens that quietly rebalanced to keep traders in control."
+        images={[tlx01, tlx02, tlx03, tlx04]}
       />
     </StyledOurProjects>
   );
