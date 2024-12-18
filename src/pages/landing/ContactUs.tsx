@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { EMAIL } from "../../app/constants";
-import bg from "../../assets/backgrounds/2C.png";
+import bg from "../../assets/backgrounds/5C.jpg";
 
 const StyledContactUs = styled.div`
   width: 100%;
@@ -22,13 +22,13 @@ const Background = styled.img`
 
 const Content = styled.div`
   display: flex;
-  width: 65%;
+  width: 100%;
   align-items: center;
   justify-content: center;
 `;
 
 const Header = styled.a`
-  font-size: 8vw;
+  font-size: 10rem;
   font-weight: 800;
   margin-bottom: 1.6rem;
   text-align: center;
@@ -38,7 +38,6 @@ const Header = styled.a`
   white-space: nowrap;
   color: var(--main);
   position: relative;
-  mix-blend-mode: difference;
 `;
 
 const ContactUs = () => {
@@ -46,7 +45,7 @@ const ContactUs = () => {
     <StyledContactUs>
       <Background src={bg} />
       <Content>
-        <Header href={`mailto:${EMAIL}`}>Contact Us</Header>
+        <Header href={`mailto:${EMAIL}`}>Get in touch</Header>
         <div />
       </Content>
     </StyledContactUs>
