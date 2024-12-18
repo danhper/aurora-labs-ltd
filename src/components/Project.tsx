@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledProject = styled.div<{ show: boolean }>`
+const StyledProject = styled.div<{ $show: boolean }>`
   width: 100dvw;
   height: 100dvh;
   position: absolute;
@@ -16,7 +16,7 @@ const StyledProject = styled.div<{ show: boolean }>`
   overflow-y: auto;
 
   transition: transform 1s;
-  transform: ${(props) => (props.show ? "translateX(0)" : "translateX(100%)")};
+  transform: ${(props) => (props.$show ? "translateX(0)" : "translateX(100%)")};
 `;
 
 const Header = styled.h2`
@@ -77,7 +77,7 @@ interface Props {
 
 const Project = ({ show, hide, name, content, images }: Props) => {
   return (
-    <StyledProject show={show}>
+    <StyledProject $show={show}>
       <Header>{name}</Header>
       <Paragraph>{content}</Paragraph>
       <ExitButton onClick={hide}>Exit</ExitButton>
