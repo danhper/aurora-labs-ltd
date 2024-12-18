@@ -5,7 +5,7 @@ const GlobalStyle = createGlobalStyle`
         --bg: #111;
         --main: white;
         --sub: grey;
-        --primary: blue;
+        --primary: #1872f0;
         --secondary: green;
     }
 
