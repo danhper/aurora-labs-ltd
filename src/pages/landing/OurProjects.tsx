@@ -1,15 +1,14 @@
-import { useState } from "react";
 import styled from "styled-components";
 
 import tlx01 from "../../assets/screenshots/tlx/01.png";
-import tlx02 from "../../assets/screenshots/tlx/02.png";
-import tlx03 from "../../assets/screenshots/tlx/03.png";
-import tlx04 from "../../assets/screenshots/tlx/04.png";
+// import tlx02 from "../../assets/screenshots/tlx/02.png";
+// import tlx03 from "../../assets/screenshots/tlx/03.png";
+// import tlx04 from "../../assets/screenshots/tlx/04.png";
 
-import mero01 from "../../assets/screenshots/mero/01.png";
+// import mero01 from "../../assets/screenshots/mero/01.png";
 import mero02 from "../../assets/screenshots/mero/02.png";
-import mero03 from "../../assets/screenshots/mero/03.png";
-import mero04 from "../../assets/screenshots/mero/04.png";
+// import mero03 from "../../assets/screenshots/mero/03.png";
+// import mero04 from "../../assets/screenshots/mero/04.png";
 
 const StyledOurProjects = styled.div`
   width: 100%;
