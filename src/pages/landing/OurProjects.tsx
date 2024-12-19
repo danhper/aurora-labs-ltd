@@ -11,6 +11,8 @@ import mero01 from "../../assets/screenshots/mero/01.png";
 import mero02 from "../../assets/screenshots/mero/02.png";
 import mero03 from "../../assets/screenshots/mero/03.png";
 import mero04 from "../../assets/screenshots/mero/04.png";
+import mero05 from "../../assets/screenshots/mero/05.png";
+import mero06 from "../../assets/screenshots/mero/06.png";
 import Project from "../../components/Project";
 
 const StyledOurProjects = styled.div`
@@ -58,7 +60,7 @@ const WhoWeAre = () => {
         <Projects>
           <Project
             logo={meroLogo}
-            images={[mero02, mero01, mero03, mero04]}
+            images={[mero02, mero01, mero03, mero04, mero05, mero06]}
             description="Mero redefined liquidity, making it reactive, efficient, and unapologetically dynamic in a space that demanded evolution."
           />
           <Project
