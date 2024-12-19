@@ -5,7 +5,6 @@ import bg from "../../assets/backgrounds/5C.jpg";
 const StyledContactUs = styled.div`
   width: 100%;
   height: 100dvh;
-  z-index: 1000;
   overflow: hidden;
   display: flex;
   align-items: center;
