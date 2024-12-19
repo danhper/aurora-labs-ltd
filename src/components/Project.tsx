@@ -1,92 +1,156 @@
 import styled from "styled-components";
+import { useState } from "react";
 
-const StyledProject = styled.div<{ $show: boolean }>`
-  width: 100dvw;
-  height: 100dvh;
-  position: absolute;
+import arrow from "../assets/ui/arrow.svg";
+
+const StyledProject = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
-  background: var(--bg);
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  padding: 6rem;
-  gap: 7rem;
-  overflow-y: auto;
-
-  transition: transform 1s;
-  transform: ${(props) => (props.$show ? "translateX(0)" : "translateX(100%)")};
+  padding: 2rem;
+  align-items: center;
+  gap: 2rem;
 `;
 
-const Header = styled.h2`
-  font-size: 8vw;
-  font-weight: 800;
-  margin-bottom: 1.6rem;
-  text-align: center;
-  text-transform: uppercase;
-  white-space: nowrap;
-  color: var(--main);
-  position: relative;
+const LogoContainer = styled.div`
+  width: 100%;
 `;
 
-const Paragraph = styled.p`
-  font-size: 4vw;
-  font-weight: 600;
-  text-align: center;
-  margin-bottom: 2rem;
-  position: relative;
-  text-transform: uppercase;
-  text-align: justify;
+const ProjectLogo = styled.img`
+  height: 4.3rem;
 `;
 
-const ExitButton = styled.button`
-  font-size: 4vw;
-  font-weight: 800;
-  text-align: center;
-  color: var(--main);
-  text-decoration: underline;
-  position: fixed;
-  line-height: 1;
-  top: 2rem;
-  left: 2rem;
-  text-transform: uppercase;
-  text-align: justify;
+const ProjectButton = styled.button`
   cursor: pointer;
 `;
 
-const Images = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4rem;
+const ProjectImage = styled.img`
+  width: 100%;
+  border: 1px solid var(--main);
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+`;
+
+const Description = styled.p`
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--main);
+  text-align: center;
+`;
+
+const ImageOverlayContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(20px) saturate(0%) brightness(0.5);
+  z-index: 1000;
+`;
+
+const ImageOverlay = styled.div`
+  height: 80%;
+  background: var(--bg);
+  border: 1px solid var(--main);
+  position: relative;
 `;
 
 const Image = styled.img`
-  width: 100%;
-  height: auto;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+`;
+
+const ImageControls = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 5rem);
+  display: flex;
+  justify-content: space-between;
+`;
+
+const ImageControl = styled.button`
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
   border: 1px solid var(--main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5rem;
+  aspect-ratio: 1 / 1;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 1);
+  backdrop-filter: blur(20px) saturate(0%) brightness(0.5);
+`;
+
+const Arrow = styled.img<{ $right?: boolean }>`
+  width: 80%;
+
+  transform: ${({ $right }) => ($right ? "rotate(-90deg)" : "rotate(90deg)")};
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 `;
 
 interface Props {
-  show: boolean;
-  hide: () => void;
-  name: string;
-  content: string;
+  logo: string;
+  description: string;
   images: string[];
 }
 
-const Project = ({ show, hide, name, content, images }: Props) => {
+const Project = ({ logo, description, images }: Props) => {
+  const [showing, setShowing] = useState<boolean>(false);
+  const [imageIndex, setImageIndex] = useState<number>(0);
+
   return (
-    <StyledProject $show={show}>
-      <Header>{name}</Header>
-      <Paragraph>{content}</Paragraph>
-      <ExitButton onClick={hide}>Exit</ExitButton>
-      <Images>
-        {images.map((image, index) => (
-          <Image key={index} src={image} />
-        ))}
-      </Images>
-    </StyledProject>
+    <>
+      <StyledProject>
+        <LogoContainer>
+          <ProjectLogo src={logo} />
+        </LogoContainer>
+        <ProjectButton onClick={() => setShowing(true)}>
+          <ProjectImage src={images[0]} />
+        </ProjectButton>
+        <Description>{description}</Description>
+      </StyledProject>
+      {showing && (
+        <ImageOverlayContainer>
+          <CloseButton onClick={() => setShowing(false)} />
+          <ImageOverlay>
+            <Image src={images[imageIndex]} />
+            <ImageControls>
+              <ImageControl
+                onClick={() =>
+                  setImageIndex((prev) => (prev + 1) % images.length)
+                }
+              >
+                <Arrow src={arrow} />
+              </ImageControl>
+
+              <ImageControl
+                onClick={() =>
+                  setImageIndex((prev) => {
+                    if (prev === 0) return images.length - 1;
+                    else return prev - 1;
+                  })
+                }
+              >
+                <Arrow src={arrow} $right />
+              </ImageControl>
+            </ImageControls>
+          </ImageOverlay>
+        </ImageOverlayContainer>
+      )}
+    </>
   );
 };
 
