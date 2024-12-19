@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
+import tlxLogo from "../../assets/logo/tlx.svg";
 import tlx01 from "../../assets/screenshots/tlx/01.png";
 // import tlx02 from "../../assets/screenshots/tlx/02.png";
 // import tlx03 from "../../assets/screenshots/tlx/03.png";
 // import tlx04 from "../../assets/screenshots/tlx/04.png";
 
+import meroLogo from "../../assets/logo/mero.svg";
 // import mero01 from "../../assets/screenshots/mero/01.png";
 import mero02 from "../../assets/screenshots/mero/02.png";
 // import mero03 from "../../assets/screenshots/mero/03.png";
@@ -56,29 +58,19 @@ const Project = styled.div`
   gap: 2rem;
 `;
 
+const LogoContainer = styled.div`
+  width: 100%;
+`;
+
+const ProjectLogo = styled.img`
+  height: 4.3rem;
+`;
+
 const ProjectImage = styled.img`
   width: 100%;
   border: 1px solid var(--main);
   overflow: hidden;
   aspect-ratio: 16 / 9;
-`;
-
-const ProjectInfo = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const InfoRow = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-`;
-
-const InfoText = styled.p`
-  font-size: 3rem;
-  font-weight: 600;
-  color: var(--main);
 `;
 
 const Description = styled.p`
@@ -95,14 +87,9 @@ const WhoWeAre = () => {
         <Header>Our Projects</Header>
         <Projects>
           <Project>
-            <ProjectInfo>
-              <InfoRow>
-                <InfoText>Mero</InfoText>
-              </InfoRow>
-              <InfoRow>
-                <InfoText style={{ textAlign: "right" }}>2021</InfoText>
-              </InfoRow>
-            </ProjectInfo>
+            <LogoContainer>
+              <ProjectLogo src={tlxLogo} />
+            </LogoContainer>
             <ProjectImage src={mero02} />
             <Description>
               Mero redefined liquidity, making it reactive, efficient, and
@@ -110,14 +97,9 @@ const WhoWeAre = () => {
             </Description>
           </Project>
           <Project>
-            <ProjectInfo>
-              <InfoRow>
-                <InfoText>TLX</InfoText>
-              </InfoRow>
-              <InfoRow>
-                <InfoText style={{ textAlign: "right" }}>2024</InfoText>
-              </InfoRow>
-            </ProjectInfo>
+            <LogoContainer>
+              <ProjectLogo src={meroLogo} />
+            </LogoContainer>
             <ProjectImage src={tlx01} />
             <Description>
               TLX distilled leverage into simplicity, crafting non-liquidating
