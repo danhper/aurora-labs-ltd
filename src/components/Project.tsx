@@ -21,14 +21,15 @@ const ProjectLogo = styled.img`
 `;
 
 const ProjectButton = styled.button`
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
   cursor: pointer;
+  border: 1px solid var(--main);
 `;
 
 const ProjectImage = styled.img`
   width: 100%;
-  border: 1px solid var(--main);
-  overflow: hidden;
-  aspect-ratio: 16 / 9;
 `;
 
 const Description = styled.p`
@@ -53,15 +54,15 @@ const ImageOverlayContainer = styled.div`
 
 const ImageOverlay = styled.div`
   height: 80%;
+  aspect-ratio: 16 / 9;
   background: var(--bg);
   border: 1px solid var(--main);
   position: relative;
+  overflow: hidden;
 `;
 
 const Image = styled.img`
-  height: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
+  width: 100%;
 `;
 
 const ImageControls = styled.div`
