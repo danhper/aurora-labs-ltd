@@ -17,19 +17,13 @@ const StyledHero = styled.div`
   }
 `;
 
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-
-  @media (max-width: 900px) {
-    gap: 1.6rem;
-  }
-`;
-
 const Header = styled.h1`
   font-size: 14rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80rem;
+  height: 43rem;
   font-weight: 800;
   margin-bottom: 1.6rem;
   text-align: center;
@@ -38,23 +32,26 @@ const Header = styled.h1`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: solid 20px var(--main);
+  border: solid 2rem var(--main);
   line-height: 1.3;
 
   @media (max-width: 900px) {
-    font-size: 4.5rem;
+    font-size: 14dvw;
+    border: solid 2dvw var(--main);
+    width: 80dvw;
+    height: 43dvw;
   }
 `;
 
 const downAndUpAnimation = keyframes`
   0% {
-    transform: translateY(0);
+    transform: translate(-50%, 0);
   }
   50% {
-    transform: translateY(3rem);
+    transform: translate(-50%, 3rem);
   }
   100% {
-    transform: translateY(0);
+    transform: translate(-50%, 0);
   }
 `;
 
@@ -63,12 +60,17 @@ const Arrow = styled.img<{ $show: boolean }>`
   position: absolute;
   bottom: -1.5rem;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, 0);
 
   animation: ${downAndUpAnimation} 1s infinite;
 
   transition: opacity 1s;
   opacity: ${(props) => (props.$show ? 1 : 0)};
+
+  @media (max-width: 900px) {
+    height: 2.5rem;
+    bottom: -3rem;
+  }
 `;
 
 const Hero = () => {
@@ -95,9 +97,7 @@ const Hero = () => {
 
   return (
     <StyledHero>
-      <Content>
-        <Header>Aurora Labs Ltd</Header>
-      </Content>
+      <Header>Aurora Labs Ltd</Header>
       <Arrow src={arrow} $show={showArrow && !hasScrolledDown} />
     </StyledHero>
   );
