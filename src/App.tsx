@@ -17,7 +17,7 @@ const StyledApp = styled.div`
   background: var(--bg);
 
   @media (max-width: 900px) {
-    padding: 1.2rem;
+    padding: 1.8rem;
   }
 `;
 
