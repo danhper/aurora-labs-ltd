@@ -5,18 +5,30 @@ import bg from "../../assets/backgrounds/5C.jpg";
 const StyledContactUs = styled.div`
   width: 100%;
   height: 100dvh;
-  overflow: hidden;
   display: flex;
   align-items: center;
   position: relative;
+
+  @media (max-width: 900px) {
+    padding: 10rem 0;
+    height: auto;
+  }
 `;
 
 const Background = styled.img`
-  width: 100%;
+  width: calc(100dvw);
   height: 100dvh;
   position: absolute;
   top: 0;
   left: 0;
+
+  @media (max-width: 900px) {
+    width: 100dvw;
+    height: 150%;
+    left: -1.8rem;
+    bottom: -1.8rem;
+    top: auto;
+  }
 `;
 
 const Content = styled.div`
@@ -37,6 +49,11 @@ const Header = styled.a`
   white-space: nowrap;
   color: var(--main);
   position: relative;
+
+  @media (max-width: 900px) {
+    font-size: 11.5dvw;
+    font-weight: 700;
+  }
 `;
 
 const ContactUs = () => {
