@@ -10,6 +10,11 @@ const StyledProject = styled.div`
   padding: 2rem;
   align-items: center;
   gap: 2rem;
+
+  @media (max-width: 900px) {
+    padding: 0;
+    gap: 1.4rem;
+  }
 `;
 
 const LogoContainer = styled.div`
@@ -18,6 +23,10 @@ const LogoContainer = styled.div`
 
 const ProjectLogo = styled.img`
   height: 4.3rem;
+
+  @media (max-width: 900px) {
+    height: 3.7rem;
+  }
 `;
 
 const ProjectButton = styled.button`
@@ -37,6 +46,10 @@ const Description = styled.p`
   font-weight: 500;
   color: var(--main);
   text-align: center;
+
+  @media (max-width: 900px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const ImageOverlayContainer = styled.div`
@@ -59,6 +72,11 @@ const ImageOverlay = styled.div`
   border: 1px solid var(--main);
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 900px) {
+    height: auto;
+    width: calc(100% - 3.2rem);
+  }
 `;
 
 const Image = styled.img`
@@ -73,6 +91,12 @@ const ImageControls = styled.div`
   width: calc(100% - 5rem);
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 900px) {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+  }
 `;
 
 const ImageControl = styled.button`
@@ -86,10 +110,14 @@ const ImageControl = styled.button`
   aspect-ratio: 1 / 1;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 1);
   backdrop-filter: blur(20px) saturate(0%) brightness(0.5);
+
+  @media (max-width: 900px) {
+    height: 4.5rem;
+  }
 `;
 
 const Arrow = styled.img<{ $right?: boolean }>`
-  width: 80%;
+  width: 67%;
 
   transform: ${({ $right }) => ($right ? "rotate(-90deg)" : "rotate(90deg)")};
 `;
