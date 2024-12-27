@@ -24,6 +24,10 @@ const StyledOurProjects = styled.div`
   position: relative;
   flex-direction: column;
   padding: 15rem 0;
+
+  @media (max-width: 900px) {
+    padding: 10rem 0;
+  }
 `;
 
 const Content = styled.div`
@@ -43,6 +47,12 @@ const Header = styled.h2`
   white-space: nowrap;
   color: var(--main);
   position: relative;
+
+  @media (max-width: 900px) {
+    font-size: 11.5dvw;
+    font-weight: 700;
+    margin-bottom: 5rem;
+  }
 `;
 
 const Projects = styled.div`
@@ -50,6 +60,11 @@ const Projects = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    gap: 5rem;
+  }
 `;
 
 const WhoWeAre = () => {
