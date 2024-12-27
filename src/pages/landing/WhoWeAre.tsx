@@ -10,6 +10,11 @@ const StyledWhoWeAre = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+
+  @media (max-width: 900px) {
+    height: auto;
+    padding: 10rem 0;
+  }
 `;
 
 const Content = styled.div`
@@ -21,6 +26,11 @@ const Content = styled.div`
   max-width: 120rem;
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 900px) {
+    padding: 2rem;
+    gap: 1rem;
+  }
 `;
 
 const Header = styled.h2<{ $show: boolean }>`
@@ -35,6 +45,12 @@ const Header = styled.h2<{ $show: boolean }>`
 
   transition: all 1s;
   opacity: ${(props) => (props.$show ? 1 : 0)};
+
+  @media (max-width: 900px) {
+    font-size: 12dvw;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
 `;
 
 const Paragraph = styled.p<{ $show: boolean }>`
@@ -48,6 +64,10 @@ const Paragraph = styled.p<{ $show: boolean }>`
 
   transition: all 1s;
   opacity: ${(props) => (props.$show ? 1 : 0)};
+
+  @media (max-width: 900px) {
+    font-size: 1.8rem;
+  }
 `;
 
 const TopBorder = styled.div<{ $show: boolean }>`
@@ -61,6 +81,10 @@ const TopBorder = styled.div<{ $show: boolean }>`
   transition: transform 1s;
   transform: ${(props) =>
     props.$show ? "translateX(0)" : "translateX(-100%)"};
+
+  @media (max-width: 900px) {
+    height: 3px;
+  }
 `;
 
 const BottomBorder = styled.div<{ $show: boolean }>`
@@ -73,6 +97,10 @@ const BottomBorder = styled.div<{ $show: boolean }>`
 
   transition: transform 1s;
   transform: ${(props) => (props.$show ? "translateX(0)" : "translateX(100%)")};
+
+  @media (max-width: 900px) {
+    height: 3px;
+  }
 `;
 
 const LeftBorder = styled.div<{ $show: boolean }>`
@@ -86,6 +114,10 @@ const LeftBorder = styled.div<{ $show: boolean }>`
   transition: transform 1s;
   transform: ${(props) =>
     props.$show ? "translateY(0)" : "translateY(-100%)"};
+
+  @media (max-width: 900px) {
+    width: 3px;
+  }
 `;
 
 const RightBorder = styled.div<{ $show: boolean }>`
@@ -98,6 +130,10 @@ const RightBorder = styled.div<{ $show: boolean }>`
 
   transition: transform 1s;
   transform: ${(props) => (props.$show ? "translateY(0)" : "translateY(100%)")};
+
+  @media (max-width: 900px) {
+    width: 3px;
+  }
 `;
 
 const WhoWeAre = () => {
