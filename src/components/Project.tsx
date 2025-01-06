@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import arrow from "../assets/ui/arrow.svg";
 
@@ -140,6 +140,31 @@ const Project = ({ logo, description, images }: Props) => {
   const [showing, setShowing] = useState<boolean>(false);
   const [imageIndex, setImageIndex] = useState<number>(0);
 
+  const goRight = useCallback(() => {
+    setImageIndex((prev) => (prev + 1) % images.length);
+  }, [images.length]);
+
+  const goLeft = useCallback(() => {
+    setImageIndex((prev) => {
+      if (prev === 0) return images.length - 1;
+      else return prev - 1;
+    });
+  }, [images.length]);
+
+  useEffect(() => {
+    // Go right and left with arrow keys
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") goRight();
+      if (e.key === "ArrowLeft") goLeft();
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyPress);
+    };
+  }, [goRight, goLeft]);
+
   return (
     <>
       <StyledProject>
@@ -157,22 +182,11 @@ const Project = ({ logo, description, images }: Props) => {
           <ImageOverlay>
             <Image src={images[imageIndex]} />
             <ImageControls>
-              <ImageControl
-                onClick={() =>
-                  setImageIndex((prev) => (prev + 1) % images.length)
-                }
-              >
+              <ImageControl onClick={() => goLeft()}>
                 <Arrow src={arrow} />
               </ImageControl>
 
-              <ImageControl
-                onClick={() =>
-                  setImageIndex((prev) => {
-                    if (prev === 0) return images.length - 1;
-                    else return prev - 1;
-                  })
-                }
-              >
+              <ImageControl onClick={() => goRight()}>
                 <Arrow src={arrow} $right />
               </ImageControl>
             </ImageControls>
