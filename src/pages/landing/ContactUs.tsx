@@ -11,6 +11,7 @@ const StyledContactUs = styled.div`
 
   @media (max-width: 900px) {
     padding: 10rem 0;
+    margin-top: 3rem;
     height: auto;
   }
 `;
