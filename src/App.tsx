@@ -48,12 +48,6 @@ const App = () => {
       <Route path="/" element={<Layout />}>
         <Route index element={<LandingPage />} />
 
-        {/* <Route path="test2">
-          <Route path=":someId" element={<CampaignPage />} />
-        </Route>
-
-        <Route path="test" element={<CreatePage />} /> */}
-
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
