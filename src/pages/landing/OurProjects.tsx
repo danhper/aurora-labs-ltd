@@ -74,14 +74,15 @@ const WhoWeAre = () => {
         <Header>Our Projects</Header>
         <Projects>
           <Project
-            logo={meroLogo}
-            images={[mero02, mero01, mero03, mero04, mero05, mero06]}
-            description="Mero redefined liquidity, making it reactive, efficient, and unapologetically dynamic in a space that demanded evolution."
-          />
-          <Project
             logo={tlxLogo}
             images={[tlx01, tlx02, tlx03, tlx04]}
             description="TLX distilled leverage into simplicity, crafting non-liquidating tokens that quietly rebalanced to keep traders in control."
+          />
+          <Project
+            previously="Backd"
+            logo={meroLogo}
+            images={[mero02, mero01, mero03, mero04, mero05, mero06]}
+            description="Mero redefined liquidity, making it reactive, efficient, and unapologetically dynamic in a space that demanded evolution."
           />
         </Projects>
       </Content>
