@@ -4,6 +4,7 @@ import Background from "./Background";
 import WhoWeAre from "./WhoWeAre";
 import OurProjects from "./OurProjects";
 import ContactUs from "./ContactUs";
+import News from "./News";
 
 const StyledLandingPage = styled.div`
   width: 100%;
@@ -19,6 +20,7 @@ const LandingPage = () => {
       <Hero />
       <WhoWeAre />
       <OurProjects />
+      <News />
       <ContactUs />
     </StyledLandingPage>
   );
