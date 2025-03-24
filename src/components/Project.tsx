@@ -27,7 +27,7 @@ const LogoContainer = styled.div`
   flex-direction: column;
 `;
 
-const Previously = styled.p`
+const Subtext = styled.p`
   font-size: 1.2rem;
   font-weight: 500;
 `;
@@ -145,10 +145,10 @@ interface Props {
   logo: string;
   description: string;
   images: string[];
-  previously?: string;
+  subtext?: string;
 }
 
-const Project = ({ logo, description, images, previously }: Props) => {
+const Project = ({ logo, description, images, subtext }: Props) => {
   const [showing, setShowing] = useState<boolean>(false);
   const [imageIndex, setImageIndex] = useState<number>(0);
 
@@ -182,7 +182,7 @@ const Project = ({ logo, description, images, previously }: Props) => {
       <StyledProject>
         <LogoContainer>
           <ProjectLogo src={logo} />
-          {previously && <Previously>{`(formerly ${previously})`}</Previously>}
+          {subtext && <Subtext>{subtext}</Subtext>}
         </LogoContainer>
         <ProjectButton onClick={() => setShowing(true)}>
           <ProjectImage src={images[0]} />
