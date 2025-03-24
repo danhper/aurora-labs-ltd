@@ -175,11 +175,9 @@ const WhoWeAre = () => {
 
         <Header $show={showText}>Who We Are</Header>
         <Paragraph $show={showText}>
-          We are the architects of the decentralized future.
-        </Paragraph>
-        <Paragraph $show={showText}>
-          At the crossroads of code and culture, we craft DeFi applications on
-          Ethereum that push boundaries, disrupt norms, and reimagine finance.
+          Web3-native solutions for next-gen innovation. We are the architects
+          of the decentralized future, crafting applications on Ethereum that
+          reimagine finance.
         </Paragraph>
       </Content>
     </StyledWhoWeAre>
